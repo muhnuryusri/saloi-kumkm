@@ -76,7 +76,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         
-        $newImageName='images/'.time().'-'.request()->name.'.'.request()->image->extension();
+        $newImageName='images/'.time().'-'.request()->name.'.'.request()->image->extension(); //
         request()->image->move(public_path('images'), $newImageName);       
 
         $user = User::create([

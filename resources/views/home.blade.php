@@ -263,7 +263,7 @@
 <section class="bg-white">
     <div class="container py-5 ">
         <div class="bg-primary border-radius text-center text-light py-5 mx-auto">
-            <p class="display-6 fw-bold mt-5">Tunggun apa lagi? <br> ayo daftarkan usahamu sekarang</p>
+            <p class="display-6 fw-bold mt-5">Tunggu apa lagi? <br> ayo daftarkan usahamu sekarang</p>
             @if(auth()->user())
             <a href="{{ route('umkm.create') }}">
                 @else

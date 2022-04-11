@@ -129,19 +129,19 @@ class KoperasiController extends Controller
             if ($request->oldImageStrukturorganisasi) {
                 Storage::delete($request->oldImageSampul);
             }
-            $data['gambar_struktur_organisasi'] = $request->file('gambar_struktur_organisasi')->store('umkm');
+            $data['gambar_struktur_organisasi'] = $request->file('gambar_struktur_organisasi')->store('koperasi');
         }
         if ($request->file('gambar_sampul')) {
             if ($request->oldImageSampul) {
                 Storage::delete($request->oldImageSampul);
             }
-            $data['gambar_sampul'] = $request->file('gambar_sampul')->store('umkm');
+            $data['gambar_sampul'] = $request->file('gambar_sampul')->store('koperasi');
         }
         if ($request->file('gambar_logo')) {
             if ($request->oldImageLogo) {
                 Storage::delete($request->oldImageLogo);
             }
-            $data['gambar_logo'] = $request->file('gambar_logo')->store('umkm');
+            $data['gambar_logo'] = $request->file('gambar_logo')->store('koperasi');
         }
         $umkm = Umkm::findOrFail($id);
         $umkm->update($data);

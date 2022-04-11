@@ -2,12 +2,10 @@
 
 namespace Illuminate\Foundation\Auth;
 
-use App\Models\Province;
-use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 trait RegistersUsers
 {
@@ -20,13 +18,7 @@ trait RegistersUsers
      */
     public function showRegistrationForm()
     {
-// return $coo=Province::all();
-        $coo=  $data['country']=DB::table('provinces')->orderBy('name','asc')->get();
-        return view('auth.register',[
-            'title'=>'Registrasi',
-            'country'=>$coo,
-
-        ]);
+        return view('auth.register');
     }
 
     /**
@@ -37,14 +29,8 @@ trait RegistersUsers
      */
     public function register(Request $request)
     {
-        // ddd($request);
-      
         $this->validator($request->all())->validate();
 
-   if($request->file('image')){
-            $validate['image']=$request->file('image')->store('umkm');
-        }
-        
         event(new Registered($user = $this->create($request->all())));
 
         $this->guard()->login($user);

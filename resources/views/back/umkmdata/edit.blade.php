@@ -194,11 +194,11 @@
                                           
                                     <!--  -->
                                    
-                                    // $entities = ($umkm->kategoriusaha as $t)
-                                    $entities = $t->nama_kategori->kategoriusaha_umkm ;
+                                    // $title = ($umkm->kategoriusaha as $t)
+                                    $title = $t->nama_kategori->kategoriusaha_umkm ;
                                      <?php
                                     // $entities = "8,9,10,11";
-                                    $entity = explode(",", $entities);
+                                    $entity = explode(",", $title);
                                     ?>
                                     <option value="{{  $row->id }}" {{ (in_array($row->id, $entity)) ? 'selected' : '' }}>{{ $row->nama_kategori }}</option>
                                     @endforeach

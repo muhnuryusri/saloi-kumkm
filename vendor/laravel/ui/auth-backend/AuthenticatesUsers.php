@@ -2,10 +2,8 @@
 
 namespace Illuminate\Foundation\Auth;
 
-use App\Models\Umkm;
-use App\Models\Koperasi;
-use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 
@@ -20,7 +18,7 @@ trait AuthenticatesUsers
      */
     public function showLoginForm()
     {
-        return redirect()->route('home');
+        return view('auth.login');
     }
 
     /**
@@ -179,7 +177,7 @@ trait AuthenticatesUsers
 
         return $request->wantsJson()
             ? new JsonResponse([], 204)
-            : redirect('/home');
+            : redirect('/');
     }
 
     /**

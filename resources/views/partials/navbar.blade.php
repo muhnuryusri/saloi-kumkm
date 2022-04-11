@@ -15,12 +15,12 @@
                     " href="/">Beranda</a>
                  </li>
                  <li class="nav-item mx-3 dropdown">
-                     <a class="nav-link" href="#" role="button">
+                     <a class="nav-link" href="/list-umkm" role="button">
                          UMKM
                      </a>
                  </li>
                  <li class="nav-item mx-3 dropdown">
-                     <a class="nav-link" href="#" role="button">
+                     <a class="nav-link" href="/list-umkm" role="button">
                          Koperasi
                      </a>
                  </li>
@@ -30,7 +30,28 @@
                  @auth
                  @if(auth()->user()->level==1)
                  <li class="nav-item mx-3">
-                     <a class="nav-link" href="/admin">Admin</a>
+                     <a class="nav-link" href="/dashboardadmin">Admin</a>
+                 </li>
+                 @endif
+                 @endauth
+                 @auth
+                 @if(auth()->user()->level==2)
+                 <li class="nav-item mx-3">
+                     <a class="nav-link" href="/dashboard">Dashboard</a>
+                 </li>
+                 @endif
+                 @endauth
+                 @auth
+                 @if(auth()->user()->level==3)
+                 <li class="nav-item mx-3">
+                     <a class="nav-link" href="/dashboardumkm">Admin</a>
+                 </li>
+                 @endif
+                 @endauth
+                 @auth
+                 @if(auth()->user()->level==4)
+                 <li class="nav-item mx-3">
+                     <a class="nav-link" href="/dashboardkoperasi">Admin</a>
                  </li>
                  @endif
                  @endauth
@@ -67,8 +88,6 @@
                          <li><a class="dropdown-item" href="{{ route('umkm.create') }}">Daftar UMKM</a></li>
                          <li><a class="dropdown-item" href="{{ route('koperasi.create') }}">Daftar Koperasi</a></li>
                          @endif
-
-                         <li><a class="dropdown-item" href="#">Laporan Keuangan</a></li>
                          <li>
                              <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                  @csrf
